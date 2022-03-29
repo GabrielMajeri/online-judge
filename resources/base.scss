@@ -180,6 +180,14 @@ footer {
     padding: 10px 0;
 }
 
+#footer-logos {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center
+}
+
 html {
     position: relative;
     height: 100%;

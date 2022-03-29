@@ -94,6 +94,9 @@ nav {
             &.home-nav-element a {
                 padding: 0;
                 height: 44px;
+                display: inline-flex;
+                flex-direction: row;
+                align-items: center;
 
                 &:hover {
                     border-bottom: none;
