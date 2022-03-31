@@ -28,6 +28,11 @@
 
 {% block body %}
     <div class="auth-flow-form">
+        {% if form.has_azuread_auth %}
+            <a href="{{ url('social:begin', "azuread-tenant-oauth2") }}?next={{ next }}" class="microsoft-login">
+                <img width="300px" src="{{ static('icons/sign-in-with-microsoft.svg') }}" alt="Sign in with Microsoft" />
+            </a>
+        {% endif %}
         <form action="" method="post" class="form-area">
             {% csrf_token %}
             {% if form.errors %}
