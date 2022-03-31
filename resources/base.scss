@@ -17,6 +17,10 @@
     max-width: device-width;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 a {
     color: $color_link75;
 
@@ -100,7 +104,7 @@ footer {
     color: $color_primary50;
     display: block;
     width: 100%;
-    bottom: 0;
+    margin-top:auto;
 }
 
 body {
@@ -290,6 +294,8 @@ noscript #noscript {
     border-right: 1px solid $color_primary25;
     border-left: 1px solid $color_primary25;
     background: $color_pageBg;
+    display: flex;
+    flex-direction: column;
 }
 
 // border-bottom: 1px solid rgb(204, 204, 204)
@@ -328,7 +334,7 @@ math {
 
 @media (max-width: 760px) {
     #content {
-        width: auto;
+        width: 100vw;
         padding: 0 5px;
     }
 }
