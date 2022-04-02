@@ -33,6 +33,9 @@
                 <img width="300px" src="{{ static('icons/sign-in-with-microsoft.svg') }}" alt="Sign in with Microsoft" />
             </a>
         {% endif %}
+        <details style="margin-top: 1rem">
+        <summary>Username & password login</summary>
+        <br/>
         <form action="" method="post" class="form-area">
             {% csrf_token %}
             {% if form.errors %}
@@ -58,7 +61,11 @@
             <button style="float:right;" type="submit">{{ _('Login!') }}</button>
             <input type="hidden" name="next" value="{{ next }}">
         </form>
+        <br/>
+        <br/>
         <a href="{{ url('password_reset') }}">{{ _('Forgot your password?') }}</a>
+
+        </details>
 
         {% if form.has_google_auth or form.has_facebook_auth or form.has_github_auth %}
             <h4>{{ _('Or log in with...') }}</h4>
