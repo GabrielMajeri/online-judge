@@ -65,8 +65,10 @@ class ProfileForm(ModelForm):
         widgets['about'] = MartorWidget(attrs={'data-markdownfy-url': reverse_lazy('profile_preview')})
 
     def clean_about(self):
+        '''
         if 'about' in self.changed_data and not self.instance.has_any_solves:
             raise ValidationError(_('You must solve at least one problem before you can update your profile.'))
+        '''
         return self.cleaned_data['about']
 
     def clean(self):
