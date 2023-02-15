@@ -184,11 +184,19 @@ footer {
 }
 
 #footer-logos {
-    display: inline-flex;
+    margin: 8px 12px 0;
+
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center
+    align-items: center;
+    gap: 16px;
+
+    img {
+        display: block;
+        max-height: 52px;
+    }
 }
 
 html {

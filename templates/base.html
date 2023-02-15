@@ -288,8 +288,18 @@
     <footer>
         <span id="footer-content">
             <div id="footer-logos">
-                <img height="52px" src="{{ static('icons/logo-fmi-black.png') }}" alt="Logo Facultatea de Matematică și Informatică"/>
-                <img height="80px" src="{{ static('icons/logo-unibuc-color-orizontal.svg') }}" alt="Logo Universitatea din București"/>
+                <picture>
+                    {% if perms.judge.test_site and PREFERRED_STYLE_CSS is none %}
+                        <source srcset="{{ static('icons/logo-fmi-white.png') }}" media="(prefers-color-scheme: dark)" />
+                    {% endif %}
+                    <img src="{{ static('icons/logo-fmi-black.png') }}" alt="Logo Facultatea de Matematică și Informatică" />
+                </picture>
+                <picture>
+                    {% if perms.judge.test_site and PREFERRED_STYLE_CSS is none %}
+                        <source srcset="{{ static('icons/logo-unibuc-white.png') }}" media="(prefers-color-scheme: dark)" />
+                    {% endif %}
+                    <img src="{{ static('icons/logo-unibuc-color.png') }}" alt="Logo Universitatea din București" />
+                </picture>
             </div>
             <br>
             <a style="color: #808080" href="https://dmoj.ca">{{ _('proudly powered by **DMOJ**')|markdown('default', strip_paragraphs=True) }}</a> |
