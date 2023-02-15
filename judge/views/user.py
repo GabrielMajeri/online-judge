@@ -65,7 +65,7 @@ class UserMixin(object):
         return super(UserMixin, self).render_to_response(context, **response_kwargs)
 
 
-class UserPage(TitleMixin, UserMixin, DetailView):
+class UserPage(LoginRequiredMixin, TitleMixin, UserMixin, DetailView):
     template_name = 'user/user-base.html'
 
     def get_object(self, queryset=None):
@@ -467,6 +467,7 @@ class FixedContestRanking(ContestRanking):
         return self.contest
 
 
+@login_required
 def users(request):
     if request.user.is_authenticated:
         participation = request.profile.current_contest
