@@ -163,6 +163,31 @@ $(function () {
     });
 });
 
+// Based on https://stackoverflow.com/a/4819886/5723188
+function isTouchDevice() {
+    return (('ontouchstart' in window) ||
+       (navigator.maxTouchPoints > 0) ||
+       (navigator.msMaxTouchPoints > 0));
+}
+
+$(function () {
+    var $user_links = $('#user-links');
+
+    if (!isTouchDevice()) {
+        return;
+    }
+
+    var $nested_links = $user_links.find('ul > li > ul');
+    $user_links.find('a[href="/user"]').click(function (event) {
+        event.preventDefault();
+
+        $nested_links.focus();
+    });
+
+    $nested_links.find('a[href="/edit/profile/"]').parent()
+        .prev().css('display', 'block');
+});
+
 if (!Date.now) {
     Date.now = function () {
         return new Date().getTime();
