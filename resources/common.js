@@ -178,7 +178,7 @@ $(function () {
     }
 
     var $nested_links = $user_links.find('ul > li > ul');
-    $user_links.find('a[href="/user"]').click(function (event) {
+    $user_links.find('> ul > li > a[href="/user"]').click(function (event) {
         event.preventDefault();
 
         $nested_links.focus();
